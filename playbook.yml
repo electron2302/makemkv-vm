@@ -1,0 +1,26 @@
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: apt update
+      changed_when: false
+      apt:
+        update_cache: yes
+
+    - name: apt upgrade
+      apt:
+        upgrade: "safe"
+
+    - name: Add repository from PPA for make-mkv
+      ansible.builtin.apt_repository:
+        repo: ppa:heyarje/makemkv-beta
+
+    - name: apt update
+      changed_when: false
+      apt:
+        update_cache: yes
+
+    - name: apt install makemkv
+      apt:
+        name: makemkv-bin
+        state: latest
