@@ -2,5 +2,4 @@
 Vagrant &amp; Ansible to spin up vm in Virtualbox runing makemkv
 
 ### TODO
-- [ ] Make network auto select 
-- [ ] enable ubs3-controller from the start
+- [ ] Make network auto select

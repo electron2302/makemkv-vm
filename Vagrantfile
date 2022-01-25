@@ -7,9 +7,11 @@ Vagrant.configure("2") do |config|
   config.vm.network "public_network"
 
   config.vm.provider "virtualbox" do |vb|
+    vb.name = "MakeMKV Box"
     vb.gui = true
     vb.memory = "8192"
     vb.cpus = 4
+    vb.customize ["modifyvm", :id, "--usbxhci", "on"]
   end
   
   config.vm.provision "ansible_local" do |ansible|
